@@ -108,17 +108,13 @@
     .device-col { display: flex; flex-direction: column; align-items: center; gap: 22px; }
     .phone {
       position: relative;
-      width: min(300px, 78vw); aspect-ratio: 9 / 19;
+      width: min(300px, 78vw); aspect-ratio: 300 / 515;
       background: var(--ink);
-      border-radius: 46px;
-      padding: 11px;
+      border-radius: 40px;
+      padding: 12px;
       box-shadow: 0 1px 0 1px #2a3150 inset, 0 40px 80px -30px #12172B66, 0 18px 30px -18px #12172B55;
     }
-    .phone::before { /* dynamic island */
-      content: ""; position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
-      width: 84px; height: 24px; background: var(--ink); border-radius: 20px; z-index: 3;
-    }
-    .screen { position: relative; height: 100%; border-radius: 36px; overflow: hidden; background: #fff; }
+    .screen { position: relative; height: 100%; border-radius: 28px; overflow: hidden; background: #fff; }
     .app {
       position: absolute; inset: 0; display: flex; flex-direction: column;
       opacity: 0; transform: scale(1.04);
@@ -127,7 +123,7 @@
       --c: #333;
     }
     .app.on { opacity: 1; transform: none; }
-    .app-top { background: var(--c); color: #fff; padding: 54px 18px 18px; }
+    .app-top { background: var(--c); color: #fff; padding: 30px 18px 16px; }
     .app-top b { display: block; font-family: var(--display); font-size: 22px; letter-spacing: -0.02em; }
     .app-top small { opacity: .85; font-size: 12px; }
     .app-body { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #F6F7F9; }
@@ -155,6 +151,12 @@
     .bars.weak i:nth-child(n+3) { background: #d5d9e0; }
     .cta-bar { margin-top: auto; background: var(--c); color: #fff; text-align: center; padding: 12px; border-radius: 14px; font-weight: 600; }
     .rank { width: 22px; font-family: var(--display); font-weight: 800; color: var(--c); font-size: 15px; }
+
+    .app.real { background: #fff; }
+    .app.real img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    /* Abhyaasa's store image is a promo graphic; its app screen sits at x88 y414, 544px wide, in a 720px-wide image */
+    .app.real img.crop { position: absolute; width: 132.35%; height: auto; max-width: none; left: -16.18%; top: -42.78%; object-fit: initial; }
+    .app.real.abh { background: linear-gradient(90deg, #017892, #01204C); }
 
     .switcher { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 360px; }
     .switcher button {
@@ -201,6 +203,16 @@
     .stores { display: flex; flex-direction: column; gap: 6px; }
     .stores a { font-weight: 500; color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px; text-decoration-thickness: 2px; }
     .stores a:hover { text-decoration-color: var(--blue); color: var(--blue); }
+    .shots {
+      display: flex; gap: 12px; margin: 20px 0 0; padding: 4px 2px 10px;
+      overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+      scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+    }
+    .shots img {
+      flex: none; height: 300px; width: auto; border-radius: 14px; scroll-snap-align: start;
+      background: var(--surface); border: 1px solid var(--line);
+    }
+    @media (max-width: 720px) { .shots img { height: 240px; } }
     .note { font-size: 14px; color: var(--muted); margin: 24px 0 0; }
 
     /* Experience */
@@ -318,61 +330,28 @@
             <div class="screen" id="screen">
 
               <!-- Elyments -->
-              <div class="app on" style="--c:#2B6CF6" data-name="Elyments" data-caption="Chat, audio and video calling, kept fully native on Android, iOS and web.">
-                <div class="app-top"><b>Elyments</b><small>Chats</small></div>
-                <div class="app-body">
-                  <div class="row"><span class="av"></span><p><b>Family</b><span>Video call ended, 24 min</span></p><span class="tag">3</span></div>
-                  <div class="row"><span class="av"></span><p><b>Arjun</b><span>Sending the build tonight</span></p></div>
-                  <div class="row"><span class="av"></span><p><b>Design team</b><span>Voice note, 0:42</span></p><span class="tag">1</span></div>
-                  <div class="row"><span class="av"></span><p><b>Simran</b><span>See you at 7</span></p></div>
-                  <div class="row"><span class="av"></span><p><b>Office</b><span>Missed audio call</span></p></div>
-                </div>
+              <div class="app real on" style="--c:#2B6CF6" data-name="Elyments" data-caption="Chat, audio and video calling, kept fully native on Android, iOS and web.">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/65/4e/9e/654e9e65-cb08-1ad5-d404-fd5efeab504d/eaf974dc-f57d-4d34-9059-da910121a741_3.png/600x0w.png" alt="Elyments conversations screen" referrerpolicy="no-referrer" />
               </div>
 
               <!-- Abhyaasa -->
-              <div class="app" style="--c:#6E4FC2" data-name="Abhyaasa" data-caption="Daily meditation with Sri Sri Ravi Shankar. Rewritten from Ionic to Flutter, then extended with challenges and group sessions.">
-                <div class="app-top"><b>Abhyaasa</b><small>Today's practice</small></div>
-                <div class="app-body">
-                  <div class="ring"><div><span><b>14:20</b>remaining</span></div></div>
-                  <div class="row"><span class="av"></span><p><b>Group meditation</b><span>1,240 meditating now</span></p><span class="tag">Join</span></div>
-                  <div class="row"><span class="av"></span><p><b>21-day challenge</b><span>Day 9 of 21</span></p></div>
-                </div>
+              <div class="app real abh" style="--c:#6E4FC2" data-name="Abhyaasa" data-caption="Daily meditation with Sri Sri Ravi Shankar. Rewritten from Ionic to Flutter, then extended with challenges and group sessions.">
+                <img class="crop" src="https://play-lh.googleusercontent.com/aEN2LzaIBXGtc7c_HWMz_nBpZkfy3DHqrTHrcxdUICAZzVuq_MRdWw7jiacbJ7pkewjptP2oCjG1BoV8Ms6Ec3A=w900" alt="Abhyaasa My Sadhana playlist screen" referrerpolicy="no-referrer" />
               </div>
 
               <!-- SmartApp -->
-              <div class="app" style="--c:#0E9A74" data-name="SmartApp" data-caption="Patients book doctor appointments instantly. I designed, built and released it, then maintained it for a year.">
-                <div class="app-top"><b>SmartApp</b><small>Book an appointment</small></div>
-                <div class="app-body">
-                  <div class="row"><span class="av"></span><p><b>Dr. Mehra</b><span>General physician</span></p><span class="tag">4.9</span></div>
-                  <div class="days">
-                    <span>Mon<b>12</b></span><span class="pick">Tue<b>13</b></span><span>Wed<b>14</b></span><span>Thu<b>15</b></span><span>Fri<b>16</b></span>
-                  </div>
-                  <div class="slots"><span>09:30</span><span>10:00</span><span class="pick">10:30</span><span>11:00</span><span>16:00</span><span>16:30</span></div>
-                  <div class="cta-bar">Confirm 10:30</div>
-                </div>
+              <div class="app real" style="--c:#0E9A74" data-name="SmartApp" data-caption="Patients book doctor appointments instantly. I designed, built and released it, then maintained it for a year.">
+                <img src="https://play-lh.googleusercontent.com/sLISoR0RGkXxKE0p27b5vSJc6ToMD4_aglcbSXyho285YWjBHvtfRsOfSOm2VF9w8uENojNqmMW_sSFSmvK-kQ=w600" alt="Smart Appointment booking screen" referrerpolicy="no-referrer" />
               </div>
 
               <!-- Udaya WANI -->
-              <div class="app" style="--c:#D9480F" data-name="Udaya WANI" data-caption="Find and connect to free public Wi-Fi under the PM-WANI programme. Flutter and native code bridged across several app variants.">
-                <div class="app-top"><b>Udaya WANI</b><small>Free Wi-Fi nearby</small></div>
-                <div class="app-body">
-                  <div class="row"><span class="bars"><i></i><i></i><i></i><i></i></span><p><b>PM-WANI Railway Stn</b><span>Connected</span></p><span class="tag">On</span></div>
-                  <div class="row"><span class="bars"><i></i><i></i><i></i><i></i></span><p><b>Udaya Market Hub</b><span>120 m away</span></p></div>
-                  <div class="row"><span class="bars weak"><i></i><i></i><i></i><i></i></span><p><b>Bus Stand Free Wi-Fi</b><span>340 m away</span></p></div>
-                  <div class="row"><span class="bars weak"><i></i><i></i><i></i><i></i></span><p><b>Library Hotspot</b><span>500 m away</span></p></div>
-                </div>
+              <div class="app real" style="--c:#D9480F" data-name="Udaya WANI" data-caption="Manage Udaya routers and connect to free public Wi-Fi under PM-WANI. Flutter and native code bridged across several app variants.">
+                <img src="https://play-lh.googleusercontent.com/PSHgKxhGvz_VrOwLIpnNWXP5UH7ALoUh-87qIfJszrucZzq5isYzegTauSXeA7XiA8QnvGGrLPZ2AT90Tgpw9S8=w600" alt="Udaya Wifi network overview screen" referrerpolicy="no-referrer" />
               </div>
 
               <!-- Rainmaker -->
-              <div class="app" style="--c:#C2255C" data-name="Rainmaker" data-caption="A skill-based fantasy game for crypto and stocks. Designed and developed in Flutter over six months.">
-                <div class="app-top"><b>Rainmaker</b><small>Weekly league</small></div>
-                <div class="app-body">
-                  <div class="row"><span class="rank">1</span><p><b>bullrun_ritu</b><span>+18.4% portfolio</span></p><span class="tag">2,410</span></div>
-                  <div class="row"><span class="rank">2</span><p><b>hodl.harsh</b><span>+15.9% portfolio</span></p><span class="tag">2,265</span></div>
-                  <div class="row"><span class="rank">3</span><p><b>You</b><span>+14.2% portfolio</span></p><span class="tag">2,180</span></div>
-                  <div class="row"><span class="rank">4</span><p><b>chartist_k</b><span>+11.0% portfolio</span></p><span class="tag">1,940</span></div>
-                  <div class="cta-bar">Build this week's team</div>
-                </div>
+              <div class="app real" style="--c:#C2255C" data-name="Rainmaker" data-caption="A skill-based fantasy game for crypto and stocks. Designed and developed in Flutter over six months.">
+                <img src="https://img.utdstc.com/screen/ea0/803/ea0803cbed0fe816d27d9c374d39ceb970c180ee3169ec6f8821f255df5ad8a6:800" alt="Rainmaker upcoming crypto contests screen" referrerpolicy="no-referrer" />
               </div>
 
             </div>
@@ -401,7 +380,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Selected work</h2>
-          <p>A few of the apps I've designed, built or rebuilt. Each one is live on the App Store and Google Play.</p>
+          <p>A few of the apps I've designed, built or rebuilt, with screenshots from their store listings.</p>
         </div>
         <ul class="projects">
           <li class="project" style="--c:#2B6CF6">
@@ -410,10 +389,14 @@
               <h3>Elyments</h3>
               <p class="stack">React, Kotlin, Swift</p>
               <p class="desc">A chat, audio and video calling app. I maintained and updated the web, Android and iOS apps, keeping them native for the best performance each platform offers.</p>
+              <div class="shots" tabindex="0" aria-label="Elyments screenshots">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/ff/cf/68/ffcf688c-b685-e281-a840-f0d33b86dcd0/26903898-7328-4ef4-9807-98b7c6d7018e_2.png/600x0w.png" alt="Elyments screenshot 1" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/65/4e/9e/654e9e65-cb08-1ad5-d404-fd5efeab504d/eaf974dc-f57d-4d34-9059-da910121a741_3.png/600x0w.png" alt="Elyments screenshot 2" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
             </div>
             <div class="meta"><strong>7 months</strong>
               <div class="stores">
-                <a href="https://apps.apple.com/search?term=Elyments" target="_blank" rel="noopener">App Store</a>
+                <a href="https://apps.apple.com/in/app/id1438089972" target="_blank" rel="noopener">App Store</a>
                 <a href="https://play.google.com/store/search?q=Elyments&c=apps" target="_blank" rel="noopener">Google Play</a>
               </div>
             </div>
@@ -424,11 +407,17 @@
               <h3>Abhyaasa</h3>
               <p class="stack">Flutter</p>
               <p class="desc">A daily meditation app by Sri Sri Ravi Shankar. I redesigned it and rewrote the whole app from Ionic to Flutter, then added new features such as challenges and group meditation.</p>
+              <div class="shots" tabindex="0" aria-label="Abhyaasa screenshots">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/46/42/a0/4642a003-64c4-b201-230a-aeb5c2ba4ef4/2b29b5f7-1a24-4ae9-8b48-fba745bfab58_ss_1.png/600x0w.png" alt="Abhyaasa screenshot 1" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/49/87/6c/49876c33-32cd-1f94-f4ee-c5337b5049a2/139cb7b6-47aa-46f9-b888-e333fe825abb_ss_2.png/600x0w.png" alt="Abhyaasa screenshot 2" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/c2/4c/6a/c24c6ab4-5090-d6a9-ecca-664ef2b77fba/fe9bfce4-9b01-468c-8163-fe01ee581531_ss_5.png/600x0w.png" alt="Abhyaasa screenshot 3" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource114/v4/e1/ac/21/e1ac2155-fa41-2d18-0e4b-758bc8f5ac25/0a6b0488-b4f3-44a4-b050-3257f7e891ea_ss_6.png/600x0w.png" alt="Abhyaasa screenshot 4" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
             </div>
             <div class="meta"><strong>5 months</strong>
               <div class="stores">
-                <a href="https://apps.apple.com/search?term=Abhyaasa+Meditation+SriSri" target="_blank" rel="noopener">App Store</a>
-                <a href="https://play.google.com/store/search?q=Abhyaasa+Meditation+SriSri&c=apps" target="_blank" rel="noopener">Google Play</a>
+                <a href="https://apps.apple.com/in/app/id1050868032" target="_blank" rel="noopener">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.sumerusolutions.abhyasaAndroid" target="_blank" rel="noopener">Google Play</a>
               </div>
             </div>
           </li>
@@ -438,11 +427,15 @@
               <h3>SmartApp, Smart Appointment</h3>
               <p class="stack">Flutter</p>
               <p class="desc">Lets any patient book an appointment with a doctor instantly. I owned the design, development and release, followed by upgrades and maintenance.</p>
+              <div class="shots" tabindex="0" aria-label="Smart Appointment screenshots">
+                <img src="https://play-lh.googleusercontent.com/sLISoR0RGkXxKE0p27b5vSJc6ToMD4_aglcbSXyho285YWjBHvtfRsOfSOm2VF9w8uENojNqmMW_sSFSmvK-kQ=w600" alt="Smart Appointment screenshot 1" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://play-lh.googleusercontent.com/cyJK5NTHXyZc19Hl4s97gaB1R5KbFF_96frRAf7Vu2VFyvS7myG_NWU8eIb4N-BsrUjudK2PgtUPdijv8LQhXCc=w600" alt="Smart Appointment screenshot 2" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://play-lh.googleusercontent.com/pPeN4VGTGQR1hHk0HRYEyNgqnUsWpLmKm8q2yKQEtfY5K2KB9ubuAH7jbtVpZkeQoF4rn89K4i4fX0i_aogjexU=w600" alt="Smart Appointment screenshot 3" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
             </div>
             <div class="meta"><strong>1 year</strong>
               <div class="stores">
-                <a href="https://apps.apple.com/search?term=SmartApp+Smart+Appointment" target="_blank" rel="noopener">App Store</a>
-                <a href="https://play.google.com/store/search?q=SmartApp+Smart+Appointment&c=apps" target="_blank" rel="noopener">Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.smartappt.patient" target="_blank" rel="noopener">Google Play</a>
               </div>
             </div>
           </li>
@@ -452,11 +445,24 @@
               <h3>Udaya and WANI apps</h3>
               <p class="stack">Flutter and native</p>
               <p class="desc">Udaya manages the company's routers and adapters. The WANI apps follow PM-WANI protocols to find and connect to free Wi-Fi nearby. I managed every variant, shipped new features and built the bridge between Flutter and native code.</p>
+              <div class="shots" tabindex="0" aria-label="Udaya and WANI screenshots">
+                <img src="https://play-lh.googleusercontent.com/PSHgKxhGvz_VrOwLIpnNWXP5UH7ALoUh-87qIfJszrucZzq5isYzegTauSXeA7XiA8QnvGGrLPZ2AT90Tgpw9S8=w600" alt="Udaya Wifi network overview" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://play-lh.googleusercontent.com/QEZgpck-IAnG8bVY_n4Ugs7MeRJBVSV3R49kwxiA5B9Arc2GhUNNqeF03F6yRbDz7ORBbMBPIjCCIxsJRTMeFsU=w600" alt="Udaya Wifi activity logs" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://play-lh.googleusercontent.com/asxOoiVYoOZ2WYrkUQDVFg2pwOQo63jEI8PGrksMXQdwCdmGsKyAOnCBPRYf03bU78mW4IFmj-nFGm8yhjG_KGQ=w600" alt="udayaWANI menu" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/3e/b5/23/3eb52329-b69b-5cb7-3fd6-181f1dc71c3a/89f792fb-49d6-4519-bfdd-358f2d77d550_Apple_iPhone_8_Plus_Screenshot_0.png/600x0w.png" alt="Udaya and WANI screenshot 1" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/79/fc/fc/79fcfc4d-2500-c21e-6d69-a77b3ab85fc6/801882b4-14fe-4ec1-af7f-b26567860a3e_Apple_iPhone_8_Plus_Screenshot_1.png/600x0w.png" alt="Udaya and WANI screenshot 2" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/af/e8/02/afe80263-a5fc-a95b-5e3e-560dec426bcf/542250c5-96d7-438b-8097-c04a9cd24dec_Apple_iPhone_8_Plus_Screenshot_2.png/600x0w.png" alt="Udaya and WANI screenshot 3" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/97/2f/18/972f180c-f266-4da1-b89e-ba38661ce918/61e31db1-1c08-45ba-9ff7-1230c94d3bc6_1.png/600x0w.png" alt="Udaya and WANI screenshot 4" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/bf/71/e5/bf71e5bb-efd6-aeb9-f9e9-50c35b59544d/9cb56122-295c-418e-a50d-883c4a2145d7_2.png/600x0w.png" alt="Udaya and WANI screenshot 5" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple115/v4/4f/c3/ed/4fc3ed6b-d535-2075-e385-7410328c9dd8/345a7b87-4594-4a69-9e75-a25ecb18ac80_3.png/600x0w.png" alt="Udaya and WANI screenshot 6" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
             </div>
             <div class="meta"><strong>1.5 years</strong>
               <div class="stores">
-                <a href="https://apps.apple.com/search?term=UdayaWANI" target="_blank" rel="noopener">App Store</a>
-                <a href="https://play.google.com/store/search?q=PM+WANI+udaya&c=apps" target="_blank" rel="noopener">Google Play</a>
+                <a href="https://apps.apple.com/in/app/id1596956297" target="_blank" rel="noopener">UdayaWANI on App Store</a>
+                <a href="https://apps.apple.com/in/app/id1507349224" target="_blank" rel="noopener">Udaya WiFi on App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.udaya.udayawani" target="_blank" rel="noopener">udayaWANI on Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.inventum.udaya" target="_blank" rel="noopener">Udaya Wifi on Google Play</a>
               </div>
             </div>
           </li>
@@ -466,11 +472,19 @@
               <h3>Rainmaker: Fantasy Gaming</h3>
               <p class="stack">Flutter</p>
               <p class="desc">A legal, skill-based fantasy game for cryptocurrency and stocks, built for practice and ease of use. I designed and developed the app.</p>
+              <div class="shots" tabindex="0" aria-label="Rainmaker screenshots">
+                <img src="https://img.utdstc.com/screen/038/1cb/0381cba324704f48123dc3f2fff125642cc063cfe310b03eba2b740ba402218e:800" alt="Rainmaker My contests" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://img.utdstc.com/screen/4f3/9ea/4f39ea00589550fa94995160ffdfb7e5ce05a71361092f3cf1b60dd540e056c8:800" alt="Rainmaker closing bell contest portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://img.utdstc.com/screen/5c7/7dc/5c77dce40877587c398f1b0d4c3339e82a7844156aa52f770663813436885a34:800" alt="Rainmaker picking stocks" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://img.utdstc.com/screen/46c/683/46c68398d8ace4d61ec6aeb128b091ab520fb5c1f7c6e895b2cd1f649c5c7170:800" alt="Rainmaker blue room contest" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://img.utdstc.com/screen/d8d/d82/d8dd82ee325fca1c0f77162d1f39b62542ab69060e1036655baa925138c9f869:800" alt="Rainmaker afternoon miner's contest portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://img.utdstc.com/screen/090/ee7/090ee7e437cd249ee30e5f0532b1e13e73a583dded482930a74031486418591f:800" alt="Rainmaker picking cryptocurrencies" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://img.utdstc.com/screen/ea0/803/ea0803cbed0fe816d27d9c374d39ceb970c180ee3169ec6f8821f255df5ad8a6:800" alt="Rainmaker upcoming crypto contests" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
             </div>
             <div class="meta"><strong>6 months</strong>
               <div class="stores">
-                <a href="https://apps.apple.com/search?term=RainMaker+Fantasy+Gaming" target="_blank" rel="noopener">App Store</a>
-                <a href="https://play.google.com/store/search?q=Rainmaker+Fantasy+Gaming&c=apps" target="_blank" rel="noopener">Google Play</a>
+                <a href="https://rainmaker-cryptocurrency-and-stock-fantasy-gaming.en.uptodown.com/android" target="_blank" rel="noopener">Android APK on Uptodown</a>
               </div>
             </div>
           </li>
