@@ -155,10 +155,10 @@
     .app.real { background: #fff; }
     .app.real img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     /* Abhyaasa's store image is a promo graphic; its app screen sits at x88 y414, 544px wide, in a 720px-wide image */
-    .app.real img.crop { position: absolute; width: 132.35%; height: auto; max-width: none; left: -16.18%; top: -42.78%; object-fit: initial; }
+    .app.real img.crop { position: absolute; width: var(--w); height: auto; max-width: none; left: var(--l); top: var(--t); object-fit: initial; }
     .app.real.abh { background: linear-gradient(90deg, #017892, #01204C); }
 
-    .switcher { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 360px; }
+    .switcher { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 400px; }
     .switcher button {
       font: 500 13.5px var(--body); color: var(--ink-soft);
       background: transparent; border: 1px solid var(--line); border-radius: 999px;
@@ -313,7 +313,7 @@
         <div>
           <p class="status"><i aria-hidden="true"></i>Lead Software Developer at <a href="https://www.genaquarius.com/" target="_blank" rel="noopener">GenAquarius</a></p>
           <h1>I build the mobile apps people keep on their home screen.</h1>
-          <p class="lede">I'm Gurkaranvir Singh Bambhrah, a Flutter and native mobile developer from India. For more than 11 years I've led teams that take apps from the first requirements call through to release and long-term care, on Android, iOS and the web.</p>
+          <p class="lede">I'm Gurkaranvir Singh Bambhrah, a lead Flutter developer from India. For 11+ years I've built high-performance apps for Android, iOS and the web, with native Kotlin and Swift depth, and I own delivery from requirements to release.</p>
           <div class="actions">
             <a class="btn" href="#work">See my work</a>
             <a class="btn ghost" href="assets/Gurkaranvir-Singh-Bambhrah-Resume.pdf" target="_blank" rel="noopener">Download résumé</a>
@@ -321,6 +321,7 @@
           <div class="facts">
             <div><strong>11+ years</strong>building for mobile</div>
             <div><strong>60+ projects</strong>delivered with my teams</div>
+            <div><strong>98%</strong>user satisfaction</div>
             <div><strong>≤ 0.01%</strong>crash and ANR rate</div>
           </div>
         </div>
@@ -330,13 +331,33 @@
             <div class="screen" id="screen">
 
               <!-- Abhyaasa -->
-              <div class="app real abh" style="--c:#6E4FC2" data-name="Abhyaasa" data-caption="Daily meditation with Sri Sri Ravi Shankar. Rewritten from Ionic to Flutter, then extended with challenges and group sessions.">
-                <img class="crop" src="https://play-lh.googleusercontent.com/aEN2LzaIBXGtc7c_HWMz_nBpZkfy3DHqrTHrcxdUICAZzVuq_MRdWw7jiacbJ7pkewjptP2oCjG1BoV8Ms6Ec3A=w900" alt="Abhyaasa My Sadhana playlist screen" referrerpolicy="no-referrer" />
+              <div class="app real abh on" style="--c:#6E4FC2" data-name="Abhyaasa" data-caption="Daily meditation with Sri Sri Ravi Shankar. Rewritten from Ionic to Flutter, then extended with challenges and group sessions.">
+                <img class="crop" style="--w:132.35%;--l:-16.18%;--t:-42.78%" src="https://play-lh.googleusercontent.com/aEN2LzaIBXGtc7c_HWMz_nBpZkfy3DHqrTHrcxdUICAZzVuq_MRdWw7jiacbJ7pkewjptP2oCjG1BoV8Ms6Ec3A=w900" alt="Abhyaasa My Sadhana playlist screen" referrerpolicy="no-referrer" />
+              </div>
+
+              <!-- StepSetGo -->
+              <div class="app real" style="--c:#E8590C;background:#0E1A20" data-name="StepSetGo" data-caption="A step counter that rewards walking, tracking movement with device sensors and a third-party SDK. Native Kotlin and Swift.">
+                <img class="crop" style="--w:172.66%;--l:-36.93%;--t:-39.77%" src="https://play-lh.googleusercontent.com/F9bTh8ZO7oyOZUIQxqnE27K36gb43H4iU_S1zsZp05DlMtnCE4U0NgR4kgp-OrRWLHpbG6CXMs1qICLDegTy=w720" alt="StepSetGo daily steps screen" referrerpolicy="no-referrer" />
               </div>
 
               <!-- Elyments -->
-              <div class="app real on" style="--c:#2B6CF6" data-name="Elyments" data-caption="Chat, audio and video calling, kept fully native on Android, iOS and web.">
+              <div class="app real" style="--c:#2B6CF6" data-name="Elyments" data-caption="Chat, audio and video calling, kept fully native on Android, iOS and web.">
                 <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/65/4e/9e/654e9e65-cb08-1ad5-d404-fd5efeab504d/eaf974dc-f57d-4d34-9059-da910121a741_3.png/600x0w.png" alt="Elyments conversations screen" referrerpolicy="no-referrer" />
+              </div>
+
+              <!-- Mega Cabs -->
+              <div class="app real" style="--c:#1C4FA0;background:#fff" data-name="Mega Cabs" data-caption="Airport ride booking with rider, driver and staff apps for booking, payment, live tracking and maintenance. Native Kotlin and Swift.">
+                <img class="crop" style="--w:112.81%;--l:-6.41%;--t:-2.82%" src="https://play-lh.googleusercontent.com/N3ydO-VuFodwKHtzxRFahFSnWm2T1HbnTlhNoe_tAZS_8kxlXOPWSRGXi6WTXBAZVl_2F3539VI7icQxpO4knA=w720" alt="MegaCabs sign-in screen with airport taxi illustration" referrerpolicy="no-referrer" />
+              </div>
+
+              <!-- Novade -->
+              <div class="app real" style="--c:#2F6FB5;background:#fff" data-name="Novade" data-caption="Field management for construction, inspections and maintenance, with offline mode. Bug-fixing contract on the Flutter apps.">
+                <img class="crop" style="--w:139.26%;--l:-19.54%;--t:-24.36%" src="https://play-lh.googleusercontent.com/A-txFQBPNhwqnkh0o9C-ATiX2rsGWmO3u5CqQjDIbqIWi40d_Y_ln-kIIvSzZL7ID7nJem_c33bJcqDOvG9ZLuU=w720" alt="Novade Field Management projects screen" referrerpolicy="no-referrer" />
+              </div>
+
+              <!-- Foundry BC -->
+              <div class="app real" style="--c:#2A9D8F;background:#fff" data-name="Foundry BC" data-caption="Virtual counselling, peer support and wellness resources for young people in British Columbia, on mobile and web.">
+                <img class="crop" style="--w:175.61%;--l:-37.32%;--t:-37.57%" src="https://play-lh.googleusercontent.com/PMEqNr8t6SD1QORSQJbYgIdVGd20JHrD6C4lE2NL04lugjtvI5DUuA_04jZLFTey1_spPS_IPv_0d3mf1d_J=w720" alt="Foundry BC Connect screen" referrerpolicy="no-referrer" />
               </div>
 
               <!-- SmartApp -->
@@ -380,7 +401,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Selected work</h2>
-          <p>A few of the apps I've designed, built or rebuilt, with screenshots from their store listings.</p>
+          <p>Apps I've designed, built, rebuilt or maintained, with screenshots from their store listings.</p>
         </div>
         <ul class="projects">
           <li class="project" style="--c:#6E4FC2">
@@ -403,6 +424,27 @@
               </div>
             </div>
           </li>
+          <li class="project" style="--c:#E8590C">
+            <span class="icon" aria-hidden="true">S</span>
+            <div>
+              <h3>StepSetGo</h3>
+              <p class="stack">Kotlin, Swift, React</p>
+              <p class="desc">A step counter that rewards people for walking. It tracks movement using several device sensors and a third-party SDK.</p>
+              <div class="shots" tabindex="0" aria-label="StepSetGo screenshots">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/52/aa/8052aa27-ec4d-3e32-2f97-a44791ff109e/a4543dfc-ad8a-4729-bd4b-8f52a96af7ca_58536842-232C-4CF2-809B-A19E018CB39D.jpeg/600x0w.png" alt="StepSetGo activity tracking" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/6d/9d/ed6d9dd6-c9a4-ead9-2092-2dbe0a7a7014/pr_source.jpg/600x0w.png" alt="StepSetGo competing with friends" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/84/cd/a084cd36-4255-2407-6578-a2b5ccf4ca08/pr_source.jpg/600x0w.png" alt="StepSetGo challenges" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/02/5f/54/025f54d0-e4c3-5ad4-709a-d6ac72324192/pr_source.jpg/600x0w.png" alt="StepSetGo profile levels" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/50/4c/73/504c732b-ae0b-8f7c-acf4-19a86fefd4e8/pr_source.jpg/600x0w.png" alt="StepSetGo progress tracking" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
+            </div>
+            <div class="meta">
+              <div class="stores">
+                <a href="https://apps.apple.com/in/app/id1434541801" target="_blank" rel="noopener">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.pepkit.ssg" target="_blank" rel="noopener">Google Play</a>
+              </div>
+            </div>
+          </li>
           <li class="project" style="--c:#2B6CF6">
             <span class="icon" aria-hidden="true">E</span>
             <div>
@@ -418,6 +460,74 @@
               <div class="stores">
                 <a href="https://apps.apple.com/in/app/id1438089972" target="_blank" rel="noopener">App Store</a>
                 <a href="https://play.google.com/store/search?q=Elyments&c=apps" target="_blank" rel="noopener">Google Play</a>
+              </div>
+            </div>
+          </li>
+          <li class="project" style="--c:#1C4FA0">
+            <span class="icon" aria-hidden="true">M</span>
+            <div>
+              <h3>Mega Cabs</h3>
+              <p class="stack">Kotlin, Swift</p>
+              <p class="desc">A ride platform for airport transfers, with separate rider, driver and staff apps covering booking, payment, live tracking and fleet maintenance.</p>
+              <div class="shots" tabindex="0" aria-label="Mega Ride screenshots">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/18/50/14/1850142d-65f6-6594-515d-6bf0318acb9b/quick_secure_signin_6_5inch_ios_1284x2778.png/600x0w.png" alt="Mega Ride sign-in" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e5/88/f5/e588f5a0-bf06-2841-e28f-283b7fea6fce/ios_home.png/600x0w.png" alt="Mega Ride home" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0f/9a/16/0f9a1677-ec41-253c-0109-280bf95a4950/ios_6_fleet.png/600x0w.png" alt="Mega Ride fleet choice" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2c/30/63/2c306373-397d-b7fe-021b-195234932cd9/ios_5_confirmed__U00282_U0029.png/600x0w.png" alt="Mega Ride ride confirmed" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/11/4f/19/114f1999-1c26-3b7d-4d7e-1e0c621ff29c/ios_2_safety.png/600x0w.png" alt="Mega Ride safety" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
+            </div>
+            <div class="meta"><strong>1 year</strong>
+              <div class="stores">
+                <a href="https://apps.apple.com/in/app/id1673278553" target="_blank" rel="noopener">Mega Ride on App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.megacabsnew.app.customer" target="_blank" rel="noopener">Mega Ride on Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.megacabs.partner" target="_blank" rel="noopener">Mega Driver on Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.megacabs.kiosk" target="_blank" rel="noopener">Mega Staff on Google Play</a>
+              </div>
+            </div>
+          </li>
+          <li class="project" style="--c:#2F6FB5">
+            <span class="icon" aria-hidden="true">N</span>
+            <div>
+              <h3>Novade</h3>
+              <p class="stack">Flutter</p>
+              <p class="desc">A field management platform for construction, inspections and maintenance, covering quality checks, HSE compliance, site diaries, progress tracking and drawings, with offline mode. On a 3-month contract I fixed bugs in the Novade Enterprise and Novade Field Management apps.</p>
+              <div class="shots" tabindex="0" aria-label="Novade screenshots">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/24/d3/98/24d39879-b13f-cdac-5f90-62105af79869/pr_source.jpg/600x0w.png" alt="Novade enterprise overview" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/c7/75/dec77515-9d6d-7e93-6627-146c2ddfaedf/mzl.zzexkano.png/600x0w.png" alt="Novade enterprise projects" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/01/e8/9f/01e89f77-c780-a5e4-dc17-b4bb91638c36/mzl.lnchgpzs.png/600x0w.png" alt="Novade enterprise drawings" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a2/a6/83/a2a683a5-93cd-51f2-f583-182acee8e1c0/a2111727-db91-46c5-b299-2d157d37a914_210903_Novade-Lite_App-Store-Images-11.png/600x0w.png" alt="Novade field management projects" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e3/46/da/e346da0b-4787-c17d-faf7-7164501dc2bb/79dfd43f-340a-401f-874e-2a1f166c1f33_210903_Novade-Lite_App-Store-Images-13.png/600x0w.png" alt="Novade field management forms" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b6/11/71/b61171ab-9d5a-08e8-77e2-c57becdc460e/0fb5a3e5-968b-45e6-99f6-7719cd5f4e6b_210903_Novade-Lite_App-Store-Images-15.png/600x0w.png" alt="Novade field management drawings" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
+            </div>
+            <div class="meta"><strong>3 months, contract</strong>
+              <div class="stores">
+                <a href="https://apps.apple.com/sg/app/id944861479" target="_blank" rel="noopener">Novade Enterprise on App Store</a>
+                <a href="https://apps.apple.com/sg/app/id1579805253" target="_blank" rel="noopener">Novade Field Management on App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.upvise.novade" target="_blank" rel="noopener">Novade Enterprise on Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=net.novade.lite" target="_blank" rel="noopener">Novade Field Management on Google Play</a>
+              </div>
+            </div>
+          </li>
+          <li class="project" style="--c:#2A9D8F">
+            <span class="icon" aria-hidden="true">F</span>
+            <div>
+              <h3>Foundry BC</h3>
+              <p class="stack">Kotlin, Swift, Flutter, React</p>
+              <p class="desc">Supports young people aged 12 to 24 in British Columbia, and their caregivers, with drop-in and scheduled virtual counselling over messaging, audio and Zoom video with screen sharing, plus peer support, group sessions and wellness resources. Includes the mobile apps and the Foundry BC and Foundry BC Clinic web apps.</p>
+              <div class="shots" tabindex="0" aria-label="Foundry BC screenshots">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/6f/e2/23/6fe223dd-060a-f9c0-aea9-8aed39089ac4/22635d22-2530-4913-ae43-b263cf150545_5.5__Display.png/600x0w.png" alt="Foundry BC emotional support" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/d5/37/e2/d537e2cb-e89a-3030-be83-d88a10248911/12b8962b-5442-4720-a043-7ea78e41ed3f_5.5__Display-1.png/600x0w.png" alt="Foundry BC messaging service providers" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/6a/9c/82/6a9c82fc-fac5-afc4-5009-d495558438c9/f03274fe-4de5-4c2d-9bb3-1509d6d7a42e_5.5__Display-2.png/600x0w.png" alt="Foundry BC peer support" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/63/82/8f/63828fa6-c5e4-c0a9-ad9b-6ab5f9934583/f8e477ee-b897-4690-8fca-93fe6edb6a2f_5.5__Display-3.png/600x0w.png" alt="Foundry BC scheduling support" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/d9/51/35/d9513598-798e-fa86-40ed-06566a9c050e/68b5e2dd-8a71-4535-85b8-dbc3da42d9f2_5.5__Display-4.png/600x0w.png" alt="Foundry BC articles and tools" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              </div>
+            </div>
+            <div class="meta">
+              <div class="stores">
+                <a href="https://apps.apple.com/ca/app/id1542266903" target="_blank" rel="noopener">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=ca.foundrybc.foundryapp" target="_blank" rel="noopener">Google Play</a>
               </div>
             </div>
           </li>
@@ -445,7 +555,7 @@
             <div>
               <h3>Udaya and WANI apps</h3>
               <p class="stack">Flutter and native</p>
-              <p class="desc">Udaya manages the company's routers and adapters. The WANI apps follow PM-WANI protocols to find and connect to free Wi-Fi nearby. I managed every variant, shipped new features and built the bridge between Flutter and native code.</p>
+              <p class="desc">Udaya manages Udaya routers and adapters, and the WANI apps are PM-WANI-compliant apps for finding, connecting to and managing free public Wi-Fi nearby. I managed every app variant, shipped new features, and built the Flutter–native bridge that let new apps combine Flutter and native code.</p>
               <div class="shots" tabindex="0" aria-label="Udaya and WANI screenshots">
                 <img src="https://play-lh.googleusercontent.com/PSHgKxhGvz_VrOwLIpnNWXP5UH7ALoUh-87qIfJszrucZzq5isYzegTauSXeA7XiA8QnvGGrLPZ2AT90Tgpw9S8=w600" alt="Udaya Wifi network overview" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
                 <img src="https://play-lh.googleusercontent.com/QEZgpck-IAnG8bVY_n4Ugs7MeRJBVSV3R49kwxiA5B9Arc2GhUNNqeF03F6yRbDz7ORBbMBPIjCCIxsJRTMeFsU=w600" alt="Udaya Wifi activity logs" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
@@ -508,10 +618,8 @@
               <h3>Lead Software Developer</h3>
               <p class="org"><a href="https://www.genaquarius.com/" target="_blank" rel="noopener">GenAquarius Private Limited</a>, Noida</p>
               <ul>
-                <li>Manage web and mobile app development projects.</li>
-                <li>Lead the team and keep it collaborative and open to new ideas.</li>
-                <li>Own apps from requirements gathering to deployment and maintenance.</li>
-                <li>Work with React, Node.js, Flutter, Android, iOS and HL7.</li>
+                <li>Lead the team and own web and mobile projects end to end, from requirements gathering through deployment and maintenance, while keeping the team collaborative and open to new ideas.</li>
+                <li>Build healthcare apps with React, Node.js, Flutter and native Android and iOS, including HL7 integrations.</li>
               </ul>
             </div>
           </li>
@@ -521,11 +629,9 @@
               <h3>Lead Software Developer</h3>
               <p class="org">Sumeru Technologies Solutions, Bengaluru</p>
               <ul>
-                <li>Led and trained a team of 3 mobile app developers.</li>
-                <li>Kept crash and ANR rates between 0 and 0.01%.</li>
-                <li>Rewrote the entire codebase of 2 apps in Flutter.</li>
-                <li>Delivered high-quality apps through rigorous testing, optimisation and code reviews.</li>
-                <li>Picked up Vue.js.</li>
+                <li>Led and mentored a team of 3 mobile developers, owning apps end to end from requirements gathering through deployment and maintenance.</li>
+                <li>Rewrote the full codebases of 2 apps in Flutter.</li>
+                <li>Kept crash and ANR rates at 0 to 0.01% through rigorous testing, optimisation and code reviews.</li>
               </ul>
             </div>
           </li>
@@ -570,9 +676,9 @@
               <h3>Mobile Application Developer</h3>
               <p class="org">ILM Techno Solutions Private Limited, Noida</p>
               <ul>
-                <li>Built and maintained 18 apps in Flutter, Java, Kotlin, Objective-C and Swift.</li>
-                <li>Made apps 30% faster and improved performance by 28%.</li>
-                <li>Met clients on site for updates and testing, and trained students and interns.</li>
+                <li>Built and maintained 18 apps in Flutter/Dart, Java/Kotlin, Objective-C and Swift, and made the apps 30% faster through performance optimisation.</li>
+                <li>Worked directly with clients, including on-site visits for app updates and testing.</li>
+                <li>Trained college students and interns in mobile development.</li>
               </ul>
             </div>
           </li>
